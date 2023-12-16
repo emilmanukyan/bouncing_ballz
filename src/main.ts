@@ -8,8 +8,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </div>
 `;
 
-export const canvas = document.querySelector('canvas')!;
-export const context = canvas.getContext('2d')!;
+const canvas = document.querySelector('canvas')!;
+const context = canvas.getContext('2d')!;
 
 const bgImg = document.createElement('img');
 bgImg.src = '../images/background.jpg';
@@ -26,6 +26,8 @@ canvas.addEventListener('mousedown', (event) => {
             position: new Vector(x, y),
             radius: 30,
             rotation: 0,
+                        canvas: canvas,
+                        context: context,
         })
     );
 });
@@ -33,11 +35,11 @@ canvas.addEventListener('mousedown', (event) => {
 function update() {
     for(const ball of balls) {
         ball.update();
-		for (const otherBall of balls) {
+                for (const otherBall of balls) {
             if (otherBall !== ball) {
-				ball.interact(otherBall);
-			}
-		}
+                                ball.interact(otherBall);
+                        }
+                }
     }
 }
 
@@ -57,4 +59,3 @@ function tick() {
 }
 
 requestAnimationFrame(tick);
-
