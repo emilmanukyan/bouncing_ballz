@@ -30,10 +30,6 @@ export class Ball {
     get size() {
         return this.radius * 2;
     }
-	
-	// F = ma (Newton Second Law)
-	// a = F/m, m = 1 (in this case)
-	// So a = F (F = mg => F = g => a = g)
 
     update() {
         const acc = new Vector(0, 0);
@@ -50,7 +46,7 @@ export class Ball {
 		if(diffHorizontal >= 0)
 			this.position.x -= diffHorizontal;
 		else if(this.position.x < 0)
-			this.position.x += -this.position.x;
+			this.position.x = 0;
         
 		const isBouncing = this.position.y < canvas.height - this.size;
         if (isBouncing) {
