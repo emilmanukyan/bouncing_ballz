@@ -36,7 +36,7 @@ function update() {
         ball.update();
 		for (const otherBall of balls) {
             if (otherBall !== ball) {
-				ball.attract(otherBall);
+				ball.interact(otherBall);
 			}
 		}
     }
