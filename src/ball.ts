@@ -9,28 +9,28 @@ export class Ball {
     radius: number;
     rotation: number;
     acc: Vector = new Vector(0, 0);
-        canvas: HTMLCanvasElement;
-        context: CanvasRenderingContext2D;
+    canvas: HTMLCanvasElement;
+    context: CanvasRenderingContext2D;
 
     constructor({
         position,
         radius,
         rotation,
-                canvas,
-                context,
+        canvas,
+        context,
     }: {
         position: Vector;
         radius: number;
         rotation: number;
-                canvas: HTMLCanvasElement;
-                context: CanvasRenderingContext2D;
+        canvas: HTMLCanvasElement;
+        context: CanvasRenderingContext2D;
     }) {
         this.position = position;
         this.velocity = new Vector(0, 0);
         this.radius = radius;
         this.rotation = rotation;
-                this.canvas = canvas;
-                this.context = context;
+        this.canvas = canvas;
+        this.context = context;
     }
 
     get size() {
@@ -43,18 +43,18 @@ export class Ball {
         this.velocity.add(acc);
         this.position.add(this.velocity);
         const diffVertical = this.position.y - (this.canvas.height - this.size);
-                const diffHorizontal = this.position.x - (this.canvas.width - this.size);
+        const diffHorizontal = this.position.x - (this.canvas.width - this.size);
         if(diffVertical > 0) {
             this.velocity.mult(new Vector(-0.7, -0.7));
             this.position.y -= diffVertical;
         }
 
-                if(diffHorizontal >= 0)
-                        this.position.x -= diffHorizontal;
-                else if(this.position.x < 0)
-                        this.position.x = 0;
+        if(diffHorizontal >= 0)
+                this.position.x -= diffHorizontal;
+        else if(this.position.x < 0)
+                this.position.x = 0;
 
-                const isBouncing = this.position.y < this.canvas.height - this.size;
+        const isBouncing = this.position.y < this.canvas.height - this.size;
         if (isBouncing) {
             this.rotation += 0.1;
         }
@@ -63,8 +63,8 @@ export class Ball {
     draw() {
         this.context.save();
         this.context.translate(
-            this.position.x + this.radius,
-            this.position.y + this.radius
+        this.position.x + this.radius,
+        this.position.y + this.radius
         );
         this.context.rotate(this.rotation);
         this.context.drawImage(
