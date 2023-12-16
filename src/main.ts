@@ -1,7 +1,6 @@
 import './style.css';
 import { Vector } from './vector.ts';
 import { Ball } from './ball.ts';
-import { ballImg } from './ball.ts';
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
@@ -50,7 +49,7 @@ function draw() {
     }
 }
 
-function tick(currentTime: number) {
+function tick() {
     update();
     draw();
 
