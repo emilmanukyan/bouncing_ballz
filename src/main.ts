@@ -26,8 +26,8 @@ canvas.addEventListener('mousedown', (event) => {
             position: new Vector(x, y),
             radius: 30,
             rotation: 0,
-                        canvas: canvas,
-                        context: context,
+            canvas: canvas,
+            context: context,
         })
     );
 });
@@ -35,11 +35,11 @@ canvas.addEventListener('mousedown', (event) => {
 function update() {
     for(const ball of balls) {
         ball.update();
-                for (const otherBall of balls) {
+        for (const otherBall of balls) {
             if (otherBall !== ball) {
-                                ball.interact(otherBall);
-                        }
-                }
+                ball.interact(otherBall);
+            }
+        }
     }
 }
 
