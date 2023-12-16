@@ -78,7 +78,7 @@ export class Ball {
 	// Newton's 3rd law tells us that for every action 
 	// there is an equal and opposite reaction.
 
-    attract(otherBall: Ball) {
+    interact(otherBall: Ball) {
         const distance = Vector.sub(this.position, otherBall.position);
         if (distance.length <= this.radius + otherBall.radius) {
              const angle = distance.angle;
