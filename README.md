@@ -46,3 +46,13 @@ git clone /repository's path/
 npm i
 npm run dev
 ```
+
+You may run ```npm run build``` command to build the app.
+
+By default, the build output will be placed at `dist`. You may deploy this `dist` folder to any of your preferred platforms.
+Once you've built the app, you may test it locally by running ```npm run preview``` command.
+
+```
+npm run build
+npm run preview
+```
